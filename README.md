@@ -16,7 +16,6 @@ MY.vm.modules.namespace.<ourModule> = {
     _initModule: function(){/*initCode*/},
     
     <function>: function(){/*fBody*/}
-    }
 }
 ```
 =============
