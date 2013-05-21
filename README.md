@@ -3,6 +3,22 @@ dgKoModulizer
 
 Knockout.js extension for module oragnization.
 
+Code organization format
+```javascript
+MY.vm.modules.namespace.<ourModule> = {
+    _observables: {
+        <ourObservable>: <defaultData>,
+        <ourComputed>: function(){/*computedCode*/}
+    },
+    
+    <someProperty>: 100500,
+    
+    _initModule: function(){/*initCode*/},
+    
+    <function>: function(){/*fBody*/}
+    }
+}
+```
 =============
 
 Normal Knockout code
@@ -50,9 +66,10 @@ var myViewModel = function() {
     this.getMail = function() {
         //some code
     };
+    
     this.checkMail = function() {
         //some code
-    }
+    };
     
     // --init block --
     /*
@@ -67,8 +84,6 @@ var myViewModel = function() {
 //Init app
 var ViewModel = new myViewModel();
 ko.applyBindings(ViewModel);
-
-
 ```
 =============
 
@@ -87,10 +102,8 @@ MY.vm.modules.namespace = {};
  */
 MY.vm.modules.namespace.login = {
     
-    _observables: {
-        login: '',
-        pass: ''
-    },
+    login: '',
+    pass: '',
   
     _initModule: function() {
         /*
@@ -102,7 +115,7 @@ MY.vm.modules.namespace.login = {
     turnOffLoginPreloader: function() {
       
     }
-}
+};
 
 /**
  * User module
@@ -124,7 +137,7 @@ MY.vm.modules.namespace.user = {
     setDefaultPageUser: function() {
         //some code
     }
-}
+};
 
 /**
  * Compose module
@@ -148,7 +161,7 @@ MY.vm.modules.namespace.compose = {
     sendMail: function() {
         //some code
     }
-}
+};
 
 /**
  * Incoming mail module
@@ -169,7 +182,7 @@ MY.vm.modules.namespace.incomingMail = {
     checkMail: function() {
         //some code
     }
-}
+};
 
 //Init app
 var ViewModel = Modulizer(MY.vm.modules.namespace);
