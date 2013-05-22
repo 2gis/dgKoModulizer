@@ -3,6 +3,8 @@ dgKoModulizer
 
 Knockout.js extension for module oragnization.
 
+Article on russian about extension: http://technoblogs.2gis.ru/frontend/knockout-modules/
+
 Code organization format
 ```javascript
 MY.vm.modules.namespace.<ourModule> = {
